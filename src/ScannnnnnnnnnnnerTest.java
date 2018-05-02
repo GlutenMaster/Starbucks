@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ScannnnnnnnnnnnerTest {
-	public static ArrayList<String> adapterlist;
+	/*public static ArrayList<String> adapterlist;
     public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
     	
     	Scanner adapter = new Scanner(new File("C:\\Users\\maxen\\Desktop\\HelloWorld.txt"));
@@ -38,5 +38,5 @@ public class ScannnnnnnnnnnnerTest {
     	    	writer.close();
     		}
         }	
-    }
+    }*/
 }

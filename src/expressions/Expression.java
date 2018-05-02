@@ -1,4 +1,4 @@
-package syntax;
+package expressions;
 
 public abstract class Expression {
 	

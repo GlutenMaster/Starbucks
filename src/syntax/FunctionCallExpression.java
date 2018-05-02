@@ -1,5 +1,7 @@
 package syntax;
 
+import expressions.Expression;
+
 public class FunctionCallExpression extends Expression{
 	
 	public Function function;

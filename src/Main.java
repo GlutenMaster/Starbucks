@@ -23,7 +23,8 @@ public class Main {
 		inputField.addKeyListener(new KeyAdapter() {
             public void keyPressed(KeyEvent e) {
             	if(e.getKeyCode() == KeyEvent.VK_ENTER) {
-                	
+            		String input = inputField.getText();
+            		ScanCompile.pathDescitsion(input);
                 }
             }
         });
@@ -48,17 +49,16 @@ public class Main {
         outputField.setBorder(new TitledBorder(""));
         outputField.setPreferredSize(new Dimension(800, 200));
         outputField.setEditable(false);
-        outputField.setText("LoL ur bad");
+        //outputField.setText("LoL ur bad");
         panel.add(outputField);
         frame.add(panel);
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.revalidate();
         frame.repaint();
-        
         addActionListener();
     }
-	private static void print(String text) {
+	public static void print(String text) {
 		outputField.setText(outputField.getText() + "\n" + text);
 		frame.pack();
 		frame.revalidate();

@@ -24,7 +24,12 @@ public class Main {
             public void keyPressed(KeyEvent e) {
             	if(e.getKeyCode() == KeyEvent.VK_ENTER) {
             		String input = inputField.getText();
-            		ScanCompile.pathDescitsion(input);
+            		try {
+						ScanCompile.pathDescitsion(input);
+					} catch (FileNotFoundException | UnsupportedEncodingException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
                 }
             }
         });

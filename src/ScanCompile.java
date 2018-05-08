@@ -9,12 +9,13 @@ import java.util.Scanner;
 
 public class ScanCompile extends Main{
 	public static ArrayList<String> adapterlist;
-    public static void pathDescitsion(String input) throws FileNotFoundException {
+    public static void pathDescitsion(String input) throws FileNotFoundException, UnsupportedEncodingException {
     	Scanner adapter = new Scanner(new File(input));
         adapterlist = new ArrayList<String>();
         while (adapter.hasNext()){
             adapterlist.add(adapter.nextLine());
             }
+        dPrinter();
         }
         
     public static void dPrinter() throws FileNotFoundException, UnsupportedEncodingException{
@@ -28,7 +29,7 @@ public class ScanCompile extends Main{
         				itemList = Arrays.asList(output1);
         			}
         			System.out.println();
-        			PrintWriter writer = new PrintWriter("C:\\Users\\maxen\\Desktop\\Output.txt", "UTF-8");
+        			PrintWriter writer = new PrintWriter("C:\\Users\\maxen\\Desktop\\School\\Starbucks Containment\\Output.txt", "UTF-8");
         	    	for (int v=0; v<itemList.size(); v++) {
         	    		writer.print(itemList.get(v).toString().replace("dPrint", "").replace(",", "").replace("[", "").replace("]", ""));
         	    		writer.print(" ");

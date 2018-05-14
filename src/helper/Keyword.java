@@ -1,32 +1,75 @@
 package helper;
 
+import java.lang.reflect.Array;
+
+import expressions.ArithmeticExpressions;
+
 public class Keyword {
 	
-	public static final String CLASS = "class";
-	public static final String STATIC = "static";
-	
-	public static final String PRINT = "print";
-	public static final String PRINT_LINE = "println";
-	public static final String NEW = "new";
-	
-	public static final String FOR_LOOP = "for";
-	public static final String WHILE_LOOP = "while";
-	public static final String IF_STATEMENT = "if";
-	public static final String ELIF_STATEMENT = "elif";
-	public static final String ELSE_STATEMENT = "else";
-	public static final String SWITCH_STATEMENT = "switch";
-	public static final String CASE_STATEMENT = "case";
-	
-	public static final String ADD = "+";
-	public static final String SUBTRACT = "-";
-	public static final String MULTIPLY = "*";
-	public static final String DIVIDE = "/";
-	
-	public static final String OPEN_ARGUMENTS = "(";
-	public static final String CLOSE_ARGUMENTS = ")";
-	public static final String OPEN_CODE_BLOCK = ":";
-	public static final String END_CODE_BLOCK = ";";
-	
-	public static final String END_LINE = "\n";
-	
+/*public static String KeyWordChecker(String str){
+	for(String string: keyArray) {
+		if(str.equals(string)) {
+			keyScanOp(string);
+		}
+	}
+}
+public Object keyScanOp(String string) {
+	switch(string) {
+		case "+":
+			new ArithmeticExpressions ('+');
+		case "-":
+			
+		
+	}
+}*/
+private enum Keywords {
+	CLASS,
+	STATIC,
+	FUNCTION,
+	VOID_FUNCTION,
+	PRINT,
+	PRINT_LINE,
+	NEW,
+	FOR_LOOP,
+	WHILE_LOOP,
+	IF_STATEMENT,
+	ELIF_STATEMENT,
+	ELSE_STATEMENT,
+	SWITCH_STATEMENT,
+	CASE_STATEMENT,
+	ADD,
+	SUBTRACT,
+	MULTIPLY,
+	DIVIDE,
+	OPEN_ARGUMENTS,
+	CLOSE_ARGUMENTS,
+	OPEN_CODE_BLOCK,
+	END_CODE_BLOCK,
+	END_LINE
+}
+
+	static String[] keyArray = {
+		"class",
+		"static",
+		"funk",
+		"vfunk",
+		"println",
+		"new",
+		"for",
+		"while",
+		"if",
+		"elif",
+		"else",
+		"switch",
+		"case",
+		"+",
+		"-",
+		"*",
+		"/",
+		"(",
+		")",
+		":",
+		";",
+		"\n"
+	};
 }

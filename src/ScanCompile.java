@@ -1,41 +1,50 @@
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+import expressions.ArithmeticExpressions;
+import helper.Keyword;
+
 public class ScanCompile extends Main{
-	public static ArrayList<String> adapterlist;
-    public static void pathDescitsion(String input) throws FileNotFoundException, UnsupportedEncodingException {
-    	Scanner adapter = new Scanner(new File(input));
-        adapterlist = new ArrayList<String>();
-        while (adapter.hasNext()){
-            adapterlist.add(adapter.nextLine());
-            }
-        dPrinter();
-        }
-        
-    public static void dPrinter() throws FileNotFoundException, UnsupportedEncodingException{
-        	String[] output1 = null;
-        	List<String> itemList = null;
-        	for (int i = 0;i < adapterlist.size(); i++){
-        		if (adapterlist.get(i).contains("dPrint")) {
-        			adapterlist.get(i).split(" "); 
-        			for (int x = adapterlist.get(i).split(" ").length; x>= 0; x--) {
-        				output1 = adapterlist.get(i).split(" ");
-        				itemList = Arrays.asList(output1);
-        			}
-        			System.out.println();
-        			PrintWriter writer = new PrintWriter("C:\\Users\\maxen\\Desktop\\School\\Starbucks Containment\\Output.txt", "UTF-8");
-        	    	for (int v=0; v<itemList.size(); v++) {
-        	    		writer.print(itemList.get(v).toString().replace("dPrint", "").replace(",", "").replace("[", "").replace("]", ""));
-        	    		writer.print(" ");
-        	    	}    	
-        	    	writer.close();
-        		}
-            }	
-        }
+	public ScanCompile(Path filepath){
+		try {
+			BufferedReader fileScan = Files.newBufferedReader(filepath);
+			String line = fileScan.readLine();
+			while (line != null) {
+				parseLine(line);
+				line = fileScan.readLine();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	public void parseLine(String line) {
+		for (int x = line.split(" ").length -1; x>= 0; x--) {
+			String temp = line.split(" ")[x];
+			if (temp.equals("+") || temp.equals("*") || temp.equals("/") || temp.equals("-")) {
+				if (line.split(" ")[x-1].contains(".") && line.split(" ")[x+1].contains(".")) {
+					ArithmeticExpressions ar = new ArithmeticExpressions(Double.valueOf(line.split(" ")[x-1]), Double.valueOf(line.split(" ")[x+1]), temp.toCharArray()[0]);
+					Main.print(String.valueOf(ar.getValue()));
+				}
+				else {
+					ArithmeticExpressions ar = new ArithmeticExpressions(Math.floor(Double.valueOf(line.split(" ")[x-1])), Math.floor(Double.valueOf(line.split(" ")[x+1])), temp.toCharArray()[0]);
+					Main.print(String.valueOf(ar.getValue()));
+				}
+			}
+			//Keyword.KeyWordChecker(temp);
+		}
+	}
+	 
 }

@@ -1,27 +1,37 @@
 package helper;
 
+
 import java.lang.reflect.Array;
 
 import expressions.ArithmeticExpressions;
+import expressions.PrintFunction;
+import main.Main;
 
-public class Keyword {
+public class Keyword extends Main{
 	
-/*public static String KeyWordChecker(String str){
+public static void KeyWordChecker(String str){
+	
 	for(String string: keyArray) {
 		if(str.equals(string)) {
 			keyScanOp(string);
 		}
 	}
 }
-public Object keyScanOp(String string) {
+public static Object keyScanOp(String string) {
 	switch(string) {
-		case "+":
-			new ArithmeticExpressions ('+');
-		case "-":
-			
-		
+		case "class":
+			Main.print("Not yet implemented");
+		case "static":
+			Main.print("Not yet implemented");
+		case "funk":
+			Main.print("Not yet implemented");
+		case "vfunk":
+			Main.print("Not yet implemented");
+		case "new":
+			Main.print("Not yet implemented");
 	}
-}*/
+	return null;
+}
 private enum Keywords {
 	CLASS,
 	STATIC,
@@ -48,12 +58,12 @@ private enum Keywords {
 	END_LINE
 }
 
-	static String[] keyArray = {
+	public static String[] keyArray = {
 		"class",
 		"static",
 		"funk",
 		"vfunk",
-		"println",
+		"print",
 		"new",
 		"for",
 		"while",
@@ -72,4 +82,6 @@ private enum Keywords {
 		";",
 		"\n"
 	};
+
+	
 }
